@@ -2,19 +2,70 @@
 
 <html>
   <head>
-    <title>Problem Set 6</title>
+    <title>APCSP Pocket Calculator</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/pocket-calculator.css"/>
+    <link rel="stylesheet" type="text/css" href="pocket-calculator.css"/>
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="js/example.js"></script>
-    <script type="text/javascript" src="js/problem-set-6.js"></script>
+    <script type="text/javascript" src="pocket-calculator.js"></script>
   </head>
 
   <body>
+    <div class = "calc_frame">
+      <form name = "calculator">
+        <input class = "textview" name = "display" disabled>
+      </form>
+<!-- display is default 0
+ensure no value overflow -->
+<table>
+  <tr>
+    <td>
+      <input class="button" type="button" name="allClear" value="AC" onclick="clean()">
+      <input class="button" type="button" name="negation" value="+/-" onclick="insert('+/-')">
+      <input class="button" type = "button" name = "percentage" value = "%" onclick = "insert('%')">
+      <input class = "op_button" type = "button" name = "division" value = "/" onclick = "insert('/')">
+   </td>
+ </tr>
+   <tr>
+     <td>
+       <input class = "button" type = "button" name = "seven" value = "7" onclick = "insert(7)">
+       <input class = "button" type = "button" name = "eight" value = "8" onclick = "insert(8)">
+       <input class = "button" type = "button" name = "nine" value = "9" onclick = "insert(9)">
+       <input class = "op_button" type = "button" name = "multiplication" value = "*" onclick = "insert('*')">
+    </td>
+    </tr>
+    <tr>
+      <td>
+        <input class = "button" type = "button" name = "four" value = "4" onclick = "insert(4)">
+        <input class = "button" type = "button" name = "five" value = "5" onclick = "insert(5)">
+        <input class = "button" type = "button" name = "six" value = "6" onclick = "insert(6)">
+        <input class = "op_button" type = "button" name = "subtraction" value = "-" onclick = "insert('-')">
+     </td>
+    </tr>
+    <tr>
+      <td>
+        <input class = "button" type = "button" name = "one" value = "1" onclick = "insert(1)">
+        <input class = "button" type = "button" name = "two" value = "2" onclick = "insert(2)">
+        <input class = "button" type = "button" name = "three" value = "3" onclick = "insert(3)">
+        <input class = "op_button" type = "button" name = "addition" value = "+" onclick = "insert('+')">
+     </td>
+    </tr>
+    <tr>
+      <td>
+        <input class = "button" type = "button" name = "zero" value = "0" onclick = "insert(0)">
+        <input class = "button" type = "button" name = "decimal" value = "." onclick = "insert('.')">
+        <input class = "equal_button" type = "button" name = "equal" value = "=" onclick = "equal()">
+     </td>
+    </tr>
 
-  <div class="exercise" id="exercise1">
+</table>
+</div>
+  </body>
+</html>
+
+
+  <!-- <div class="exercise" id="exercise1">
     <div style="text-align: left;">
       <button onclick = "button1();">1</button>
 
@@ -71,6 +122,4 @@
         <div class="exercise" id="exercise*">
             <div style="text-align: left;">
               <button onclick = "button*();">*</button>
-          </div>
-  </body>
-</html>
+          </div> -->
