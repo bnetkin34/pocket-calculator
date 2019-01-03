@@ -48,3 +48,13 @@ body{
 .zero_button:hover {
   background-color: lightblue;
 }
+
+.percentage_button{
+  width: 90px;
+  height: 45px;
+}
+
+.negation_button{
+  width: 90px;
+  height: 45px;
+}

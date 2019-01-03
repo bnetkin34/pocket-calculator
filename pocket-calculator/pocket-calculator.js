@@ -61,3 +61,7 @@ function equal(){
 function clean(){
   document.calculator.display.value = "";
 }
+
+function percentage(){
+  
+}
