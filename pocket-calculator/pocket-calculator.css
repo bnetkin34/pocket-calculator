@@ -25,13 +25,26 @@ body{
 }
 
 .calc_frame{
+  position: absolute;
   top: 50%;
   left: 50%;
-  padding: 200px;
+  transform: translateX(-50%) translateY(-50%);
+  background: blue;
+  padding: 20px;
+  border-radius: 6px;
 }
 
 .textview {
-  width: 368px;
+  width: 370px;
   height: 50px;
+  font-size: 25px;
+  margin: 1px;
+}
 
+.button:hover {
+  background-color: lightblue;
+}
+
+.zero_button:hover {
+  background-color: lightblue;
 }
