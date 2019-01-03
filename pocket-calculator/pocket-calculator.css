@@ -1,0 +1,37 @@
+.op_button{
+  cursor: pointer;
+  background: orange;
+  width: 90px;
+  height: 45px;
+}
+.equal_button{
+  background: orange;
+  width: 90px;
+  height: 45px;
+}
+
+.button{
+width: 90px;
+height: 45px;
+}
+
+.zero_button{
+  width: 184px;
+  height: 45px;
+}
+
+body{
+  background-color: turquoise;
+}
+
+.calc_frame{
+  top: 50%;
+  left: 50%;
+  padding: 200px;
+}
+
+.textview {
+  width: 368px;
+  height: 50px;
+
+}
