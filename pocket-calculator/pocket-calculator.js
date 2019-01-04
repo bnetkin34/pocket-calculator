@@ -1,13 +1,25 @@
 function insert(num){
   document.calculator.display.value = document.calculator.display.value + num;
+  if(document.calculator.display.value > 999){
+    document.calculator.display.value =
+}
+if(document.calculator.display.value.length > 9){
+    document.calculator.display.value =
+}
 }
 
 function equal(){
-  let exp = document.calculator.display.value;
+  var exp = document.calculator.display.value;
   if (exp){
+      var exp = document.calculator.display.value;
     document.calculator.display.value = eval(exp);
   }
-}
+  if(document.calculator.display.value === "Infinity") {
+    document.calculator.display.value = "Error";
+  }
+  if(document.calculator.display.value === "undefined") {
+    document.calculator.display.value = "Error";
+  }
 
 function clean(){
   document.calculator.display.value = "";
@@ -20,6 +32,7 @@ function percentage(){
 function negation(){
 document.calculator.display.value = document.calculator.display.value * -1;
 }
+
 
 
 // function button0(){
