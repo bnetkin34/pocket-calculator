@@ -1,25 +1,40 @@
 function insert(num){
   document.calculator.display.value = document.calculator.display.value + num;
-  if(document.calculator.display.value > 999){
-    document.calculator.display.value =
+
+  if(document.calculator.display.value.length > 12){
+  document.calculator.display.value = "";
+  }
+
+  if(document.calculator.display.value.length > 11){
+      document.calculator.display.value = "Too many digits";
+  }
+
+  if(document.calculator.display.value.length === 3) {
+      document.calculator.display.value = document.calculator.display.value + ",";
 }
-if(document.calculator.display.value.length > 9){
-    document.calculator.display.value =
+if(document.calculator.display.value.length === 7) {
+    document.calculator.display.value = document.calculator.display.value + ",";
 }
+
+
 }
 
 function equal(){
   var exp = document.calculator.display.value;
   if (exp){
-      var exp = document.calculator.display.value;
     document.calculator.display.value = eval(exp);
   }
+
   if(document.calculator.display.value === "Infinity") {
     document.calculator.display.value = "Error";
   }
   if(document.calculator.display.value === "undefined") {
     document.calculator.display.value = "Error";
   }
+  if(document.calculator.display.value === "NaN") {
+    document.calculator.display.value = "Error";
+}
+}
 
 function clean(){
   document.calculator.display.value = "";
@@ -32,9 +47,6 @@ function percentage(){
 function negation(){
 document.calculator.display.value = document.calculator.display.value * -1;
 }
-
-
-
 // function button0(){
 // let p = document.getElementbyId("output");
 // p.innerHTML = 0;
