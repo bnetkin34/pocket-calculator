@@ -1,21 +1,20 @@
 function insert(num){
   document.calculator.display.value = document.calculator.display.value + num;
 
-  if(document.calculator.display.value.length > 12){
-  document.calculator.display.value = "";
-  }
+  // if(document.calculator.display.value.length > 12){
+  // document.calculator.display.value = "";
+  // }
 
-  if(document.calculator.display.value.length > 11){
+  if(document.calculator.display.value.length > 12){
       document.calculator.display.value = "Too many digits";
   }
 
-  if(document.calculator.display.value.length === 3) {
-      document.calculator.display.value = document.calculator.display.value + ",";
-}
-if(document.calculator.display.value.length === 7) {
-    document.calculator.display.value = document.calculator.display.value + ",";
-}
-
+//   if(document.calculator.display.value.length === 3) {
+//       document.calculator.display.value = document.calculator.display.value + ",";
+// }
+// if(document.calculator.display.value.length === 7) {
+//     document.calculator.display.value = document.calculator.display.value + ",";
+// }
 
 }
 
