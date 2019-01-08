@@ -14,7 +14,8 @@
   <body>
     <div class = "calc_frame">
       <form name = "calculator">
-        <input class = "textview" name = "display" disabled>
+        <input id="textview" class = "textview" name = "display" disabled>
+        <p id="textview class"="textview">
       </form>
 <!-- display is default 0
 ensure no value overflow -->
@@ -24,7 +25,7 @@ ensure no value overflow -->
       <input class="button" type="button" name="allClear" value="AC" onclick="clean()">
       <input class="negation_button" type="button" name="negation" value="+/-" onclick="negation('+/-')">
       <input class="percentage_button" type = "button" name = "percentage" value = "%" onclick = "percentage('%')">
-      <input class = "op_button" type = "button" name = "division" value = "/" onclick = "insert('/')">
+      <input class = "op_button" type = "button" name = "division" value = "/" onclick = "parseSym('/')">
    </td>
  </tr>
    <tr>
@@ -32,7 +33,7 @@ ensure no value overflow -->
        <input class = "button" type = "button" name = "seven" value = "7" onclick = "insert(7)">
        <input class = "button" type = "button" name = "eight" value = "8" onclick = "insert(8)">
        <input class = "button" type = "button" name = "nine" value = "9" onclick = "insert(9)">
-       <input class = "op_button" type = "button" name = "multiplication" value = "*" onclick = "insert('*')">
+       <input class = "op_button" type = "button" name = "multiplication" value = "*" onclick = "parseSym('*')">
     </td>
     </tr>
     <tr>
@@ -40,7 +41,7 @@ ensure no value overflow -->
         <input class = "button" type = "button" name = "four" value = "4" onclick = "insert(4)">
         <input class = "button" type = "button" name = "five" value = "5" onclick = "insert(5)">
         <input class = "button" type = "button" name = "six" value = "6" onclick = "insert(6)">
-        <input class = "op_button" type = "button" name = "subtraction" value = "-" onclick = "insert('-')">
+        <input class = "op_button" type = "button" name = "subtraction" value = "-" onclick = "parseSym('-')">
      </td>
     </tr>
     <tr>
@@ -48,7 +49,7 @@ ensure no value overflow -->
         <input class = "button" type = "button" name = "one" value = "1" onclick = "insert(1)">
         <input class = "button" type = "button" name = "two" value = "2" onclick = "insert(2)">
         <input class = "button" type = "button" name = "three" value = "3" onclick = "insert(3)">
-        <input class = "op_button" type = "button" name = "addition" value = "+" onclick = "insert('+')">
+        <input class = "op_button" type = "button" name = "addition" value = "+" onclick = "parseSym('+')">
      </td>
     </tr>
     <tr>
