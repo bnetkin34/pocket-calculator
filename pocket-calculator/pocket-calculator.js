@@ -1,28 +1,26 @@
+// var evalStr = ""
+// var prevStr = ""
+// var ops = []
+
+
 function insert(num){
   document.calculator.display.value = document.calculator.display.value + num;
-
-  if(document.calculator.display.value.length > 11){
-  document.calculator.display.value = "";
-  }
+  // document.calculator.display.value = " "
+  // prevStr = num
+  // evalStr = evalStr + num;
 
   if(document.calculator.display.value.length > 12){
       document.calculator.display.value = "Too many digits";
   }
 
-
-  if(document.calculator.display.value.length === 3) {
-      document.calculator.display.value = document.calculator.display.value + ",";
-}
-if(document.calculator.display.value.length === 7) {
-    document.calculator.display.value = document.calculator.display.value + ",";
 }
 
-}
+
 
 function equal(){
-  var exp = document.calculator.display.value;
+  let exp = document.calculator.display.value;
   if (exp){
-    document.calculator.display.value = eval(exp);
+    document.calculator.display.value = eval(exp).toLocaleString("en");
   }
 
   if(document.calculator.display.value === "Infinity") {
