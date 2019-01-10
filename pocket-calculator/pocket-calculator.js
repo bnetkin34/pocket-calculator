@@ -1,60 +1,97 @@
-var evaluateStr = '';
-var lastNum = true; var lastSym = false; var lastEql = false;
+var evaluateArr = ['','','']; var finalNum = true; var finalSymbol = false; var lastEql = false; currentNum = 0; var nonLoc = []; var currentNum = 0; var numbersX = 0; firstSymbol = false;
 
 function insert(num){
+  if(document)
+  if(numbersX < 9){
   if (lastEql){
-    clean(); lastEql = false;
+    clean(); lastEql = false; currentNum = 0;
   }
-  if (lastNum){
+}
+
+  if (finalNum){
+    let outputNum = Number(nonLoc.join('')).toLocaleString();
     document.calculator.display.value = (document.calculator.display.value + num);
-    lastSym = true;
+    finalSymbol = true; numbersX++;
   } else {
-    document.calculator.display.value = (num);
-    lastSym = true; lastNum = true;
+    nonLoc.push(num);
+    let outputNum = Number(nonLoc.join('')).toLocaleString();
+    document.calculator.display.value = (outputNum);
+    finalSymbol = true; finalNum = true; numbersX++;
   }
-    evaluateStr = evaluateStr + num;
+
+evaluateArr[currentNum] = evaluateArr[currentNum] + num;
 
     if(Number(document.calculator.display.value.length) > 11){
     document.calculator.display.value = "Too many digits";
     }
 }
-function parseSym(sym){
-  if (lastSym){
-    document.calculator.display.value = (sym);
-    lastSym = false; lastNum = false; lastEql = false; evaluateStr = evaluateStr + sym;
+
+function parseDecimal(){
+  if(finalSymbol){
+    if(finalNum){
+      nonLoc.push('.');
+      let outputNum = Number(nonLoc.join('')).toLocaleString();
+      document.calculator.display.value = outputNum;
+      finalSymbol = true; numbersX++;
+
+    } else {
+  nonLoc.push(num);
+  let outputNum = Number(nonLoc.join('')).toLocaleString();
+  document.calculator.display.value = (outputNum);
+  finalSymbol = true; finalNum = true; numbersX++;
+  }
+ }
+}
+
+function parseSymbol(sym){
+  if (finalSymbol){
+    if(firstSymbol){
+    document.calculator.display.value = (sym); nonLoc = []; numbersX = 0;
+    finalSymbol = false; finalNum = false; lastEql = false; evaluateArr[1] = evaluateArr[1] + sym; currentNum++; firstSymbol = true;
+  } else if (firstSymbol === false){
+    equal();
+    console.log(evaluateArr);
+    document.calculator.display.value = (sym); nonLoc = []; numbersX = 0;
+    finalSymbol = false; finalNum = false; lastEql = false; evaluateArr[1] = evaluateArr[1] + sym; currentNum++; firstSymbol = false;
+    }
   }
 }
+
 function equal(){
-  document.calculator.display.value = eval(evaluateStr).toLocaleString("en");
-  evaluateStr = eval(evaluateStr); lastNum = false; lastEql = true;
-  if(Number(evaluateStr) > 1000000000) {
-         let coefficient = 0;
-         let degree;
-         for(let n = 9; coefficient < 1 || coefficient >= 10; n++) {
-           coefficient = evaluateStr / 10 ** n;
-           degree = n;
-         }
-         document.calculator.display.value = String(coefficient) + "e" + String(degree);
-  }
+  let evaluateStr = eval(evaluateArr.join(''));
+  if (evaluateStr > 999999999){
+  evaluateStr = evaluateStr.toExponential(9)
 }
-function clean(){
-  document.calculator.display.value = ' ';
-  evaluateStr = ''; lastNum = true; lastSym = false;
-}
-function percentage(){
-  document.calculator.display.value = document.calculator.display.value/100;
+document.calculator.display.value = evaluateStr.toLocaleString();
+evaluateArr = ['','','']; evaluateArr[0] = evaluateArr[0] + eval(evaluateStr); currentNum = 1; evaluateStr = ''; finalNum = false; lastEql = true;
 }
 
 function negation(){
-document.calculator.display.value = document.calculator.display.value * -1;
+  document.calculator.display.value = (document.calculator.display.value * -1).toLocaleString();
+console.log(currentNum)
+evaluateArr[currentNum] = (evaluateArr[currentNum] * -1);
+}
+
+function percentage(){
+  if(finalSymbol){
+    document.calculator.display.value = document.calculator.display.value/100;
+    evaluateArr[currentNum] = evaluateArr[currentNum] / 100;
+  }
+}
+
+function clean(){
+  document.calculator.display.value = 0;
+  evaluateArr = ['','','']; finalNum = true; finalSymbol = false; currentNum = 0; nonLoc = []; numbersX = 0;
 }
 
 
-// // var evaluateStr = ""
-// // var prevStr = ""
-// // var ops = []
-//
-//
+
+
+// var evaluateStr = ""
+// var prevStr = ""
+// var ops = []
+
+
 // function insert(num){
 //   document.calculator.display.value = document.calculator.display.value + num;
 //   // document.calculator.display.value = " "
@@ -72,7 +109,7 @@ document.calculator.display.value = document.calculator.display.value * -1;
 // function equal(){
 //   let exp = document.calculator.display.value;
 //   if (exp){
-    // document.calculator.display.value = eval(exp).toLocaleString("en");
+//     document.calculator.display.value = eval(exp).toLocaleString("en");
 //   }
 //
 //   if(document.calculator.display.value === "Infinity") {
