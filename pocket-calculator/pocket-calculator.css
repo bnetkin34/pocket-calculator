@@ -1,22 +1,22 @@
-.op_button{
+#op_button{
   cursor: pointer;
   background: orange;
   width: 90px;
   height: 45px;
 }
 
-.equal_button{
+#equal_button{
   background: orange;
   width: 90px;
   height: 45px;
 }
 
-.button{
+#button{
 width: 90px;
 height: 45px;
 }
 
-.zero_button{
+#zero_button{
   width: 184px;
   height: 45px;
 }
@@ -25,7 +25,7 @@ body{
   background-color: turquoise;
 }
 
-.calc_frame{
+#calc_frame{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,27 +35,27 @@ body{
   border-radius: 6px;
 }
 
-.textview {
+#textview {
   width: 370px;
   height: 50px;
   font-size: 25px;
   margin: 1px;
 }
 
-.button:hover {
+#button:hover {
   background-color: lightblue;
 }
 
-.zero_button:hover {
+#zero_button:hover {
   background-color: lightblue;
 }
 
-.percentage_button{
+#percentage_button{
   width: 90px;
   height: 45px;
 }
 
-.negation_button{
+#negation_button{
   width: 90px;
   height: 45px;
 }
