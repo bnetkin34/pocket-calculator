@@ -1,19 +1,15 @@
 var executed = false;
-// var evaluateArr = [];
-//
-// function storeData(){
-//   let i;
-//   for(i = 0; i < evaluateArr.length; i++) {
-//     evaluateArr.push(document.calculator.display.value);
-//     console.log(evaluateArr);
-//   }
-// }
+var expressionArray = [];
+var expressionArray2 = [];
 
 function insert(num){
   if(executed == false){
-  document.calculator.display.value=""
+  document.calculator.display.value = "";
   executed = true;
 }
+  expressionArray.push(num)
+
+  console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calculator.display.value.includes(".")) {
         document.calculator.display.value = document.calculator.display.value + num;
@@ -21,18 +17,65 @@ function insert(num){
   } else {
     document.calculator.display.value = document.calculator.display.value + num;
   }
-  if(Number(document.calculator.display.value.length <= 9)){
+
+  if(Number(document.calculator.display.value.length <= 8)){
     document.calculator.display.value = document.calculator.display.value
   }else{
-
+    document.getElementById("zero_button").disabled = true;
+    document.getElementById("button1").disabled = true;
+    document.getElementById("button2").disabled = true;
+    document.getElementById("button3").disabled = true;
+    document.getElementById("button4").disabled = true;
+    document.getElementById("button5").disabled = true;
+    document.getElementById("button6").disabled = true;
+    document.getElementById("button7").disabled = true;
+    document.getElementById("button8").disabled = true;
+    document.getElementById("button9").disabled = true;
+  }
+  expressionArray2.push(num)
+  for(let i = 9; i > expressionArray2; i--){
+    if(i = 3){
+      document.calculator.display.value = "," +  document.calculator.display.value;
+    }
+    console.log(expressionArray2);
   }
 }
+
 function clean(){
   document.calculator.display.value=0;
   executed = false;
+    expressionArray = [];
+    document.getElementById("zero_button").disabled = false;
+    document.getElementById("button1").disabled = false;
+    document.getElementById("button2").disabled = false;
+    document.getElementById("button3").disabled = false;
+    document.getElementById("button4").disabled = false;
+    document.getElementById("button5").disabled = false;
+    document.getElementById("button6").disabled = false;
+    document.getElementById("button7").disabled = false;
+    document.getElementById("button8").disabled = false;
+    document.getElementById("button9").disabled = false;
 }
+
+function clearOnOp(){
+  document.calculator.display.value= 0
+  executed = false;
+  document.getElementById("zero_button").disabled = false;
+  document.getElementById("button1").disabled = false;
+  document.getElementById("button2").disabled = false;
+  document.getElementById("button3").disabled = false;
+  document.getElementById("button4").disabled = false;
+  document.getElementById("button5").disabled = false;
+  document.getElementById("button6").disabled = false;
+  document.getElementById("button7").disabled = false;
+  document.getElementById("button8").disabled = false;
+  document.getElementById("button9").disabled = false;
+}
+
 function equal(){
-  let calcAnswer= eval(document.calculator.display.value);
+  let calcAnswer= eval(expressionArray.join(''));
+    expressionArray = [];
+    expressionArray = [calcAnswer];
   if(calcAnswer > 999999999){
     document.calculator.display.value = calcAnswer.toExponential(9)
   }else{
@@ -42,6 +85,7 @@ function equal(){
   if(document.calculator.display.value === "Infinity" || document.calculator.display.value === "∞") {
     document.calculator.display.value = "ERROR";
   }
+
 }
 function negation(){
   document.calculator.display.value=document.calculator.display.value *-1
@@ -50,8 +94,6 @@ function negation(){
 function percentage(){
   document.calculator.display.value=document.calculator.display.value/100
 }
-
-
 
 
 

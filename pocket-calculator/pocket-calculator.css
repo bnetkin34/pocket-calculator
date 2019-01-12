@@ -11,7 +11,57 @@
   height: 45px;
 }
 
-#button{
+#button1{
+  width: 90px;
+  height: 45px;
+}
+
+#button2{
+  width: 90px;
+  height: 45px;
+}
+
+#button3{
+  width: 90px;
+  height: 45px;
+}
+
+#button4{
+  width: 90px;
+  height: 45px;
+}
+
+#button5{
+  width: 90px;
+  height: 45px;
+}
+
+#button6{
+  width: 90px;
+  height: 45px;
+}
+
+#button7{
+  width: 90px;
+  height: 45px;
+}
+
+#button8{
+  width: 90px;
+  height: 45px;
+}
+
+#button9{
+  width: 90px;
+  height: 45px;
+}
+
+#decimal{
+width: 90px;
+height: 45px;
+}
+
+#buttonAC{
 width: 90px;
 height: 45px;
 }
@@ -43,6 +93,10 @@ body{
 }
 
 #button:hover {
+  background-color: lightblue;
+}
+
+#buttonAC:hover {
   background-color: lightblue;
 }
 
