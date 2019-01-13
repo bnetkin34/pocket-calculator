@@ -7,8 +7,8 @@ function insert(num){
   document.calculator.display.value = "";
   executed = true;
 }
-  expressionArray.push(num)
 
+  expressionArray.push(num)
   console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calculator.display.value.includes(".")) {
@@ -32,17 +32,18 @@ function insert(num){
     document.getElementById("button8").disabled = true;
     document.getElementById("button9").disabled = true;
   }
-  expressionArray2.push(num)
-  for(let i = 9; i > expressionArray2; i--){
-    if(i = 3){
-      document.calculator.display.value = "," +  document.calculator.display.value;
-    }
-    console.log(expressionArray2);
-  }
+
+  // expressionArray2.push(num)
+//   for(let i = 9; i > expressionArray2; i--){
+//     if(i = 3){
+//       document.calculator.display.value = "," +  document.calculator.display.value;
+//     }
+//     console.log(expressionArray2);
+//   }
 }
 
 function clean(){
-  document.calculator.display.value=0;
+  document.calculator.display.value = 0;
   executed = false;
     expressionArray = [];
     document.getElementById("zero_button").disabled = false;
@@ -58,7 +59,7 @@ function clean(){
 }
 
 function clearOnOp(){
-  document.calculator.display.value= 0
+  document.calculator.display.value = 0
   executed = false;
   document.getElementById("zero_button").disabled = false;
   document.getElementById("button1").disabled = false;
@@ -73,26 +74,28 @@ function clearOnOp(){
 }
 
 function equal(){
-  let calcAnswer= eval(expressionArray.join(''));
+  var calcAnswer= eval(expressionArray.join(''));
     expressionArray = [];
     expressionArray = [calcAnswer];
   if(calcAnswer > 999999999){
     document.calculator.display.value = calcAnswer.toExponential(9)
   }else{
-    document.calculator.display.value=calcAnswer.toLocaleString("en")
+    document.calculator.display.value = calcAnswer.toLocaleString("en")
   }
 
   if(document.calculator.display.value === "Infinity" || document.calculator.display.value === "∞") {
     document.calculator.display.value = "ERROR";
   }
-
 }
+
 function negation(){
-  document.calculator.display.value=document.calculator.display.value *-1
+  document.calculator.display.value = document.calculator.display.value * -1;
+  console.log(document.calculator.display.value);
 }
 
 function percentage(){
-  document.calculator.display.value=document.calculator.display.value/100
+  document.calculator.display.value = document.calculator.display.value / 100;
+  console.log(document.calculator.display.value);
 }
 
 
