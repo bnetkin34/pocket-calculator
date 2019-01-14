@@ -1,6 +1,6 @@
 var executed = false;
 var expressionArray = [];
-var expressionArray2 = [];
+// var expressionArray2 = [];
 
 function insert(num){
   if(executed == false){
@@ -34,12 +34,12 @@ function insert(num){
   }
 
   // expressionArray2.push(num)
-//   for(let i = 9; i > expressionArray2; i--){
-//     if(i = 3){
-//       document.calculator.display.value = "," +  document.calculator.display.value;
-//     }
-//     console.log(expressionArray2);
-//   }
+  // for(let i = 9; i > expressionArray2; i--){
+  //   if(i = 3){
+  //     document.calculator.display.value = "," +  document.calculator.display.value;
+  //   }
+  //   console.log(expressionArray2);
+  // }
 }
 
 function clean(){
@@ -74,6 +74,17 @@ function clearOnOp(){
 }
 
 function equal(){
+  executed = false;
+  document.getElementById("zero_button").disabled = true;
+  document.getElementById("button1").disabled = true;
+  document.getElementById("button2").disabled = true;
+  document.getElementById("button3").disabled = true;
+  document.getElementById("button4").disabled = true;
+  document.getElementById("button5").disabled = true;
+  document.getElementById("button6").disabled = true;
+  document.getElementById("button7").disabled = true;
+  document.getElementById("button8").disabled = true;
+  document.getElementById("button9").disabled = true;
   var calcAnswer= eval(expressionArray.join(''));
     expressionArray = [];
     expressionArray = [calcAnswer];
@@ -90,12 +101,15 @@ function equal(){
 
 function negation(){
   document.calculator.display.value = document.calculator.display.value * -1;
-  console.log(document.calculator.display.value);
-}
+  expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] *-1;
+console.log(expressionArray);
+
+  }
 
 function percentage(){
   document.calculator.display.value = document.calculator.display.value / 100;
-  console.log(document.calculator.display.value);
+  expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] / 100;
+console.log(expressionArray);
 }
 
 
