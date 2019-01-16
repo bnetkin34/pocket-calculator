@@ -10,8 +10,8 @@ function insert(num){
  executed = true;
 }
 
- expressionArray.push(num)
- console.log(expressionArray.join(''))
+ expressionArray.push(num);
+ console.log(expressionArray.join(''));
  if (num === ".") {
      if (!document.calculator.display.value.includes(".")) {
        document.calculator.display.value = document.calculator.display.value + num;
