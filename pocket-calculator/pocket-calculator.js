@@ -40,6 +40,7 @@ console.log(document.calculator.display.value);
 let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
 document.calculator.display.value = commaInput;
 }
+
 function clean(){
  document.calculator.display.value = 0;
  executed = false;
@@ -101,15 +102,19 @@ function equal(){
    document.calculator.display.value = "ERROR";
  }
 }
+
 function negation(){
-   document.calculator.display.value=document.calculator.display.value*-1;
-   expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] * -1;
+   document.calculator.display.value = document.calculator.display.value * -1;
+   expressionArray[expressionArray.length - 1 ] = expressionArray[expressionArray.length - 1] * -1;
    console.log(expressionArray);
+   if(document.calculator.display.value === "NaN"){
+     document.calculator.display.value = "ERROR";
+   }
 }
 
 function percentage(){
- document.calculator.display.value=document.calculator.display.value/100;
- expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] /100;
+ document.calculator.display.value = document.calculator.display.value/100;
+ expressionArray[expressionArray.length - 1 ] = expressionArray[expressionArray.length - 1] /100;
 }
 
 function decimalInsert(num){
