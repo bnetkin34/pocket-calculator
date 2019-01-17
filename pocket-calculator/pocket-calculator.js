@@ -108,10 +108,10 @@ function equal(){
 }
 
 function negation(){
-  document.calculator.display.value = document.calculator.display.value.split(",").join("")
-  document.calculator.display.value = document.calculator.display.value * -1
+  document.calculator.display.value = document.calculator.display.value.split(",").join("");
+  document.calculator.display.value = document.calculator.display.value * -1;
    document.calculator.display.value = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
-   expressionArray[expressionArray.length - expressionArray.length ] = expressionArray[expressionArray.length - expressionArray.length] * -1;
+   expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] * -1;
    console.log(expressionArray);
    if(document.calculator.display.value === "NaN"){
      document.calculator.display.value = "ERROR";
@@ -122,8 +122,10 @@ function negation(){
 }
 
 function percentage(){
- document.calculator.display.value = document.calculator.display.value / 100;
- expressionArray[expressionArray.length - expressionArray.length ] = expressionArray[expressionArray.length - expressionArray.length] / 100;
+ document.calculator.display.value = Number(document.calculator.display.value) / 100;
+ let numberToBePercentage = expressionArray[expressionArray.length-expressionArray.length];
+ numberToBePercentage = numberToBePercentage / 100
+ expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] / 100;
  console.log(expressionArray);
 }
 
