@@ -123,10 +123,9 @@ function negation(){
 
 function percentage(){
  document.calculator.display.value = Number(document.calculator.display.value) / 100;
- let numberToBePercentage = expressionArray[expressionArray.length-expressionArray.length];
- numberToBePercentage = numberToBePercentage / 100
  expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] / 100;
  console.log(expressionArray);
+
 }
 
 function decimalInsert(num){
