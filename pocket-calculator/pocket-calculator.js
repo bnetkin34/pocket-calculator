@@ -2,7 +2,7 @@ var executed = false;
 var expressionArray= [];
 var decimalStatus = false;
 var piStatus = false;
-
+var decimalInserted = false;
 
 function insert(num){
  if(executed == false){
@@ -33,12 +33,13 @@ function insert(num){
    document.getElementById("button7").disabled = true;
    document.getElementById("button8").disabled = true;
    document.getElementById("button9").disabled = true;
+   document.getElementById("decimal").disabled = true;
  }
 
- console.log(document.calculator.display.value.split(",").join(""));
-console.log(document.calculator.display.value);
+if(decimalInserted == false){
 let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
 document.calculator.display.value = commaInput;
+  }
 }
 
 function clean(){
@@ -46,6 +47,7 @@ function clean(){
  executed = false;
  decimalStatus = false;
  piStatus = false;
+ decimalInserted = false;
    expressionArray = [];
    document.getElementById("zero_button").disabled = false;
    document.getElementById("button1").disabled = false;
@@ -58,6 +60,7 @@ function clean(){
    document.getElementById("button8").disabled = false;
    document.getElementById("button9").disabled = false;
    document.getElementById("pi_Button").disabled = false;
+   document.getElementById("decimal").disabled = false;
 }
 function clearOnOp(){
  document.calculator.display.value = 0;
@@ -76,6 +79,7 @@ function clearOnOp(){
  document.getElementById("button9").disabled = false;
  document.getElementById("pi_Button").disabled = false;
 }
+
 function equal(){
  piStatus = false;
  document.getElementById("zero_button").disabled = true;
@@ -104,17 +108,23 @@ function equal(){
 }
 
 function negation(){
-   document.calculator.display.value = document.calculator.display.value * -1;
-   expressionArray[expressionArray.length - 1 ] = expressionArray[expressionArray.length - 1] * -1;
+  document.calculator.display.value = document.calculator.display.value.split(",").join("")
+  document.calculator.display.value = document.calculator.display.value * -1
+   document.calculator.display.value = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
+   expressionArray[expressionArray.length - expressionArray.length ] = expressionArray[expressionArray.length - expressionArray.length] * -1;
    console.log(expressionArray);
    if(document.calculator.display.value === "NaN"){
      document.calculator.display.value = "ERROR";
    }
+   decimalInserted = true;
+   decimalStatus = true;
+  document.getElementById("decimal").disabled = true;
 }
 
 function percentage(){
- document.calculator.display.value = document.calculator.display.value/100;
- expressionArray[expressionArray.length - 1 ] = expressionArray[expressionArray.length - 1] /100;
+ document.calculator.display.value = document.calculator.display.value / 100;
+ expressionArray[expressionArray.length - expressionArray.length ] = expressionArray[expressionArray.length - expressionArray.length] / 100;
+ console.log(expressionArray);
 }
 
 function decimalInsert(num){
