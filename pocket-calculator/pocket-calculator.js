@@ -122,11 +122,19 @@ function negation(){
 }
 
 function percentage(){
- document.calculator.display.value = Number(document.calculator.display.value) / 100;
- expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] / 100;
- console.log(expressionArray);
-
+  document.calculator.display.value = document.calculator.display.value.split(",").join("");
+  let numsCount = document.calculator.display.value.length;
+  numsCount = numsCount -1;
+  console.log("nums", numsCount);
+  let amountToBeRemoved = expressionArray.length - numsCount;
+  while(expressionArray.length >= amountToBeRemoved){
+    expressionArray.pop();
+  }
+  document.calculator.display.value = document.calculator.display.value / 100;
+expressionArray[amountToBeRemoved] = document.calculator.display.value;
+  console.log(expressionArray);
 }
+
 
 function decimalInsert(num){
  if(decimalStatus == false){
