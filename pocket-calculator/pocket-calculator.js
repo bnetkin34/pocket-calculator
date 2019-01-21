@@ -5,139 +5,148 @@ var piStatus = false;
 var decimalInserted = false;
 var firstPercent = false;
 var symbolStatus = false;
+var i = 7;
 var operationInserted = false;
 var finalSym = false;
-var i = 7;
-
+var exponentialBeAware;
+var firstNegate = false;
+  console.log("statusOnLoad", finalSym, operationInserted, executed, decimalStatus, piStatus, decimalInserted)
+// BREAK //
 function insert(num){
- if(executed == false){
- document.calculator.display.value = "";
- executed = true;
+  if(executed == false){
+  document.calculator.display.value=""
+  executed = true;
 }
-
+// BREAK //
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
-  if(expressionArray[expressionArray.length - 1] == '*' || expressionArray[expressionArray.length - 1] == '/' || expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-'){
+  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1 == '*' || expressionArray[expressionArray.length - 1] == '/']){
     expressionArray.splice(expressionArray.length -1 , 1)
     expressionArray.push(num)
     operationInserted = true;
-    console.log(expressionArray)
+    console.log("raw array" , expressionArray)
   }
 }
+// BREAK //
+  if(operationInserted == false){
+    document.calculator.display.value = document.calculator.display.value + num;
+    expressionArray.push(num)
+      console.log("joined array" , expressionArray.join(''))
+  }
 
-if(operationInserted == false){
-  document.calculator.display.value = document.calculator.display.value + num;
-  expressionArray.push(num)
-    console.log(expressionArray.join(''))
-}
-
- // expressionArray.push(num);
- // console.log(expressionArray.join(''));
- // if (num === ".") {
- //     if (!document.calculator.display.value.includes(".")) {
- //       document.calculator.display.value = document.calculator.display.value + num;
- //     }
- // } else {
- //   document.calculator.display.value = document.calculator.display.value + num;
- // }
-
- if(Number(document.calculator.display.value.length <= 10)){
-   document.calculator.display.value = document.calculator.display.value;
- }else{
-   document.getElementById("zero_button").disabled = true;
-   document.getElementById("button1").disabled = true;
-   document.getElementById("button2").disabled = true;
-   document.getElementById("button3").disabled = true;
-   document.getElementById("button4").disabled = true;
-   document.getElementById("button5").disabled = true;
-   document.getElementById("button6").disabled = true;
-   document.getElementById("button7").disabled = true;
-   document.getElementById("button8").disabled = true;
-   document.getElementById("button9").disabled = true;
-   document.getElementById("decimal").disabled = true;
- }
-
-if(decimalInserted == false){
-let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
-document.calculator.display.value = commaInput;
+  if(Number(document.calculator.display.value.length) <= 10){
+    document.calculator.display.value = document.calculator.display.value
+  }else{
+    document.getElementById("zero_button").disabled = true;
+    document.getElementById("button1").disabled = true;
+    document.getElementById("button2").disabled = true;
+    document.getElementById("button3").disabled = true;
+    document.getElementById("button4").disabled = true;
+    document.getElementById("button5").disabled = true;
+    document.getElementById("button6").disabled = true;
+    document.getElementById("button7").disabled = true;
+    document.getElementById("button8").disabled = true;
+    document.getElementById("button9").disabled = true;
+    document.getElementById("decimal").disabled = true;
+    document.getElementById("pi_Button").disabled = true;
+  }
+  // BREAK //
+  if(decimalInserted == false){
+ let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
+ document.calculator.display.value = commaInput;
   }
 }
-
 function clean(){
-  lastSym = false;
-  operationInsert = false;
- document.calculator.display.value = 0;
- executed = false;
- decimalStatus = false;
- piStatus = false;
- decimalInserted = false;
- i = i = 7;
-   expressionArray = [];
-   document.getElementById("zero_button").disabled = false;
-   document.getElementById("button1").disabled = false;
-   document.getElementById("button2").disabled = false;
-   document.getElementById("button3").disabled = false;
-   document.getElementById("button4").disabled = false;
-   document.getElementById("button5").disabled = false;
-   document.getElementById("button6").disabled = false;
-   document.getElementById("button7").disabled = false;
-   document.getElementById("button8").disabled = false;
-   document.getElementById("button9").disabled = false;
-   document.getElementById("pi_Button").disabled = false;
-   document.getElementById("decimal").disabled = false;
+  finalSym = false;
+  operationInserted = false
+  document.calculator.display.value=0;
+   i = i = 7;
+  executed = false;
+  decimalStatus = false;
+  piStatus = false;
+  decimalInserted = false;
+  firstNegate = false
+  console.log("status", finalSym, operationInserted, executed, decimalStatus, piStatus, decimalInserted)
+    expressionArray = [];
+    // BREAK //
+    document.getElementById("zero_button").disabled = false;
+    document.getElementById("button1").disabled = false;
+    document.getElementById("button2").disabled = false;
+    document.getElementById("button3").disabled = false;
+    document.getElementById("button4").disabled = false;
+    document.getElementById("button5").disabled = false;
+    document.getElementById("button6").disabled = false;
+    document.getElementById("button7").disabled = false;
+    document.getElementById("button8").disabled = false;
+    document.getElementById("button9").disabled = false;
+    document.getElementById("pi_Button").disabled = false;
+    document.getElementById("decimal").disabled = false;
 }
 function clearOnOp(){
- document.calculator.display.value = 0;
- executed = false;
- decimalStatus = false;
- piStatus = false;
- lastSym = false;
- operationInserted = false;
- decInserted = false;
- symbolStatus = false;
- i = i = 7;
- document.getElementById("zero_button").disabled = false;
- document.getElementById("button1").disabled = false;
- document.getElementById("button2").disabled = false;
- document.getElementById("button3").disabled = false;
- document.getElementById("button4").disabled = false;
- document.getElementById("button5").disabled = false;
- document.getElementById("button6").disabled = false;
- document.getElementById("button7").disabled = false;
- document.getElementById("button8").disabled = false;
- document.getElementById("button9").disabled = false;
+  operationInserted = false
+   i = i = 7;
+  symbolStatus = false
+  firstPercent = false;
+  document.calculator.display.value= 0
+  executed = false;
+  decimalStatus = false;
+  piStatus = false;
+  decimalInserted = false;
+  firstNegate = true;
+  // BREAK //
+  document.getElementById("zero_button").disabled = false;
+  document.getElementById("button1").disabled = false;
+  document.getElementById("button2").disabled = false;
+  document.getElementById("button3").disabled = false;
+  document.getElementById("button4").disabled = false;
+  document.getElementById("button5").disabled = false;
+  document.getElementById("button6").disabled = false;
+  document.getElementById("button7").disabled = false;
+  document.getElementById("button8").disabled = false;
+  document.getElementById("button9").disabled = false;
  document.getElementById("pi_Button").disabled = false;
+  document.getElementById("decimal").disabled = false;
 }
-
 function equal(){
- piStatus = false;
- symbolStatus = false;
- piStatus = false;
- lastSym = true;
- document.getElementById("zero_button").disabled = true;
- document.getElementById("button1").disabled = true;
- document.getElementById("button2").disabled = true;
- document.getElementById("button3").disabled = true;
- document.getElementById("button4").disabled = true;
- document.getElementById("button5").disabled = true;
- document.getElementById("button6").disabled = true;
- document.getElementById("button7").disabled = true;
- document.getElementById("button8").disabled = true;
- document.getElementById("button9").disabled = true;
- document.getElementById("pi_Button").disabled = true;
- let calcAnswer= eval(expressionArray.join(''));
-   expressionArray = [];
-   expressionArray = [calcAnswer];
- if(calcAnswer > 999999999){
-   document.calculator.display.value = calcAnswer.toExponential(9);
- }else{
-   document.calculator.display.value=calcAnswer.toLocaleString("en");
- }
+  symbolStatus = false
+  firstPercent = false;
+  piStatus = false;
+  finalSym = true;
 
- if(document.calculator.display.value === "Infinity" || document.calculator.display.value === "∞") {
-   document.calculator.display.value = "ERROR";
- }
+  document.getElementById("decimal").disabled = true;
+  document.getElementById("zero_button").disabled = true;
+  document.getElementById("button1").disabled = true;
+  document.getElementById("button2").disabled = true;
+  document.getElementById("button3").disabled = true;
+  document.getElementById("button4").disabled = true;
+  document.getElementById("button5").disabled = true;
+  document.getElementById("button6").disabled = true;
+  document.getElementById("button7").disabled = true;
+  document.getElementById("button8").disabled = true;
+  document.getElementById("button9").disabled = true;
+  document.getElementById("pi_Button").disabled = true;
+  // BREAK //
+  let calcAnswer= eval(expressionArray.join(''));
+  if(expressionArray.join(",").includes("e")){
+     exponentialBeAware = true;
+  }
+  console.log(exponentialBeAware)
+
+    expressionArray = [];
+    expressionArray.push(calcAnswer)
+    console.log("evaluated raw", calcAnswer)
+  if(calcAnswer > 999999999 || calcAnswer < -999999999){
+    document.calculator.display.value = calcAnswer.toExponential(9)
+  }else{
+    document.calculator.display.value=calcAnswer.toLocaleString("en")
+  }
+  if(exponentialBeAware == true){
+    document.calculator.display.value = calcAnswer
+  }
+
+  if(document.calculator.display.value === "Infinity" || document.calculator.display.value === "NaN" || document.calculator.display.value === "∞") {
+    document.calculator.display.value = "ERROR";
+  }
 }
-
 function negation(){
   document.calculator.display.value = document.calculator.display.value.split(",").join("");
   document.calculator.display.value = document.calculator.display.value * -1;
@@ -145,7 +154,7 @@ function negation(){
    expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] * -1;
    console.log(expressionArray);
    if(document.calculator.display.value === "NaN"){
-     document.calculator.display.value = "ERROR";
+     document.calculator.display.value = "Error";
    }
    decimalInserted = true;
    decimalStatus = true;
@@ -154,59 +163,71 @@ function negation(){
 
 function percentage(){
   document.calculator.display.value = document.calculator.display.value.split(",").join("")
-
+if(finalSym == false){
   if(firstPercent == false){
-    let numberCount = document.calculator.display.value.length
-    numberCount = numberCount -1
-    console.log("nums", numberCount)
-  let removed = expressionArray.length - numberCount
-  while(expressionArray.length >= removed){
+    let numsCount = document.calculator.display.value.length
+    numsCount = numsCount -1
+    console.log("nums", numsCount)
+  let amountToBeRemoved = expressionArray.length - numsCount
+  //while loop
+  while(expressionArray.length >= amountToBeRemoved){
     expressionArray.pop();
   }
-  document.calculator.display.value = document.calculator.display.value / 100
-expressionArray[removed] = document.calculator.display.value
+  //
+  document.calculator.display.value = Number(document.calculator.display.value) / 100
+expressionArray[amountToBeRemoved] = document.calculator.display.value
   console.log(expressionArray)
   firstPercent = true;
+  //end of if
 }else{
-  let numberCount2 = document.calculator.display.value.length
-  numberCount2 = numberCount2 - 4
-  console.log("numbers2", numberCount2)
-  let removed2 = expressionArray.length - numberCount2
+ let numsCount2 = document.calculator.display.value.length
+ numsCount2 = numsCount2 - i
+  console.log("nums2", numsCount2)
+  let amountToBeRemoved2 = expressionArray.length - numsCount2
 expressionArray.splice(expressionArray.length -1)
   document.calculator.display.value = document.calculator.display.value / 100
-  expressionArray[removed2] = document.calculator.display.value
-  if(document.calculator.display.value<= 0.9999999){
+  expressionArray.push(document.calculator.display.value)
+console.log("array", expressionArray)
+console.log("doc", document.calculator.display.value)
+  if(document.calculator.display.value>= 0.9999999){
     let expon= Number(document.calculator.display.value)
     console.log(typeof expon);
     document.calculator.display.value = expon.toExponential(9)
   }
-  console.log(expressionArray);
+  console.log("percentaged array", expressionArray)
 }
-
+}else{
+  document.calculator.display.value = document.calculator.display.value / 100
+  expressionArray = []
+  expressionArray.push(document.calculator.display.value)
+  let expon= Number(document.calculator.display.value)
+  console.log(typeof expon);
+  if(document.calculator.display.value>= 0.9999999){
+  document.calculator.display.value = expon.toExponential(9)
+}
+}
 }
 
 
 function decimalInsert(num){
- if(decimalStatus == false){
-   document.calculator.display.value = document.calculator.display.value + num;
-   expressionArray.push(num);
-   console.log(expressionArray);
-   decimalStatus = true;
- }
+  if(decimalStatus == false){
+    document.calculator.display.value = document.calculator.display.value + num
+    expressionArray.push(num)
+    console.log("decimal array", expressionArray)
+    decimalStatus = true;
+    decimalInserted = true;
+    document.getElementById("decimal").disabled = true;
+  }
 }
 function piInsert(num){
- if(piStatus == false){
-   document.calculator.display.value = '';
-   document.calculator.display.value = document.calculator.display.value + num;
-   expressionArray.push(num);
-   console.log(expressionArray);
-   piStatus = true;
- }
+  if(piStatus == false){
+    document.calculator.display.value = ''
+    document.calculator.display.value = document.calculator.display.value + num
+    expressionArray.push(num)
+    console.log("array and pi", expressionArray)
+    piStatus = true;
+  }
 }
-
-
-
-
 // var evaluateArr = ['','','']; var finalNum = true; var finalSymbol = false; var lastEql = false; currentNum = 0; var nonLoc = []; var currentNum = 0; var numbersX = 0; firstSymbol = false;
 // var numDecimals = ".";
 //
