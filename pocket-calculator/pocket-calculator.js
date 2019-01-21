@@ -11,7 +11,7 @@ var finalSym = false;
 var exponentialBeAware;
 var firstNegate = false;
   console.log("statusOnLoad", finalSym, operationInserted, executed, decimalStatus, piStatus, decimalInserted)
-// BREAK //
+
 function insert(num){
   if(executed == false){
   document.calculator.display.value = "";
@@ -50,7 +50,7 @@ if(num === '*' || num === '/' || num === '+'|| num === '-'){
     document.getElementById("decimal").disabled = true;
     document.getElementById("pi_Button").disabled = true;
   }
-  // BREAK //
+
   if(decimalInserted == false){
  let commaInput = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
  document.calculator.display.value = commaInput;
@@ -125,7 +125,7 @@ function equal(){
   document.getElementById("button8").disabled = true;
   document.getElementById("button9").disabled = true;
   document.getElementById("pi_Button").disabled = true;
-  // BREAK //
+
   let calcAnswer= eval(expressionArray.join(''));
   if(expressionArray.join(",").includes("e")){
      exponentialBeAware = true;
@@ -150,48 +150,47 @@ function equal(){
 }
 function negation(){
   document.calculator.display.value = document.calculator.display.value.split(",").join("");
-  document.calculator.display.value = document.calculator.display.value * -1;
-  document.calculator.display.value = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
+  document.calculator.display.value = Number(document.calculator.display.value) * -1;
+  document.calculator.display.value = Number(document.calculator.display.value).toLocaleString("en");
   document.calculator.display.value = "(" + document.calculator.display.value + ")";
-  expressionArray.push(document.calculator.display.value);
-   expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] * -1;
-   console.log(expressionArray);
-   if(document.calculator.display.value === "NaN"){
-     document.calculator.display.value = "Error";
-   }
-   decimalInserted = true;
-   decimalStatus = true;
+  expressionArray[expressionArray.length - 1] = "(" + String(expressionArray[expressionArray.length - 1] * -1) + ")";
+  console.log(expressionArray);
+  if(document.calculator.display.value === "NaN"){
+    document.calculator.display.value = "Error";
+  }
+  decimalInserted = true;
+  decimalStatus = true;
   document.getElementById("decimal").disabled = true;
 }
 
 function percentage(){
   document.calculator.display.value = document.calculator.display.value.split(",").join("")
-if(finalSym == false){
+  if(finalSym == false){
   if(firstPercent == false){
-    let numsCount = document.calculator.display.value.length
-    numsCount = numsCount -1
-    console.log("nums", numsCount)
+  let numsCount = document.calculator.display.value.length
+  numsCount = numsCount -1
+  console.log("nums", numsCount)
   let amountToBeRemoved = expressionArray.length - numsCount
   //while loop
   while(expressionArray.length >= amountToBeRemoved){
-    expressionArray.pop();
+  expressionArray.pop();
   }
   //
   document.calculator.display.value = Number(document.calculator.display.value) / 100
-expressionArray[amountToBeRemoved] = document.calculator.display.value
+  expressionArray[amountToBeRemoved] = document.calculator.display.value
   console.log(expressionArray)
   firstPercent = true;
   //end of if
 }else{
- let numsCount2 = document.calculator.display.value.length
- numsCount2 = numsCount2 - i
+  let numsCount2 = document.calculator.display.value.length
+  numsCount2 = numsCount2 - i
   console.log("nums2", numsCount2)
   let amountToBeRemoved2 = expressionArray.length - numsCount2
-expressionArray.splice(expressionArray.length -1)
+  expressionArray.splice(expressionArray.length -1)
   document.calculator.display.value = document.calculator.display.value / 100
   expressionArray.push(document.calculator.display.value)
-console.log("array", expressionArray)
-console.log("doc", document.calculator.display.value)
+  console.log("array", expressionArray)
+  console.log("doc", document.calculator.display.value)
   if(document.calculator.display.value>= 0.9999999){
     let expon= Number(document.calculator.display.value)
     console.log(typeof expon);
