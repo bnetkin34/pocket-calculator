@@ -14,19 +14,20 @@ var firstNegate = false;
 // BREAK //
 function insert(num){
   if(executed == false){
-  document.calculator.display.value=""
+  document.calculator.display.value = "";
   executed = true;
 }
-// BREAK //
+
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
-  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1 == '*' || expressionArray[expressionArray.length - 1] == '/']){
-    expressionArray.splice(expressionArray.length -1 , 1)
+  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1] == '*' || expressionArray[expressionArray.length - 1] == '/'){
+    expressionArray.pop()
     expressionArray.push(num)
     operationInserted = true;
     console.log("raw array" , expressionArray)
   }
 }
-// BREAK //
+
+
   if(operationInserted == false){
     document.calculator.display.value = document.calculator.display.value + num;
     expressionArray.push(num)
@@ -149,8 +150,8 @@ function equal(){
 }
 function negation(){
   document.calculator.display.value = document.calculator.display.value.split(",").join("");
-  document.calculator.display.value = document.calculator.display.value * -1;
-   document.calculator.display.value = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
+  document.calculator.display.value = (document.calculator.display.value) * -1;
+  document.calculator.display.value = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
    expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] * -1;
    console.log(expressionArray);
    if(document.calculator.display.value === "NaN"){
