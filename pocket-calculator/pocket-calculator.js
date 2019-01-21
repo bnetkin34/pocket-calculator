@@ -151,7 +151,6 @@ function equal(){
 function negation(){
   document.calculator.display.value = document.calculator.display.value.split(",").join("");
   document.calculator.display.value = document.calculator.display.value * -1;
-  document.calculator.display.value = "()" + document.calculator.display.value;
   document.calculator.display.value = Number(document.calculator.display.value.split(",").join("")).toLocaleString();
    expressionArray[expressionArray.length - expressionArray.length] = expressionArray[expressionArray.length - expressionArray.length] * -1;
    console.log(expressionArray);
@@ -161,6 +160,7 @@ function negation(){
    decimalInserted = true;
    decimalStatus = true;
   document.getElementById("decimal").disabled = true;
+  document.calculator.display.value = "(" + document.calculator.display.value + ")";
 }
 
 function percentage(){
