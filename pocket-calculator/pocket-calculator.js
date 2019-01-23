@@ -174,7 +174,7 @@ function percentage(){
   //removes last value of expressionArray while expressionArray.length is greater than or equal to the number removed
   }
 
-  document.calculator.display.value = Number(document.calculator.display.value) / 100;
+  document.calculator.display.value = Number(document.calculator.display.value)/100;
   expressionArray[removed] = document.calculator.display.value;
   console.log(expressionArray);
   firstPercent = true;
