@@ -1,16 +1,16 @@
-var execution = false;
 var expressionArray= [];
 var decimalStatus = false;
 var piStatus = false;
+var execution = false;
 var decimalInserted = false;
 var firstPercent = false;
-var symbolStatus = false;
-var i = 7;
+var symbolStatus = false
 var operationInserted = false;
 var finalSym = false;
 var exponential;
 var firstNegate = false;
 var negated = false;
+var i = 7;
   console.log("var status", finalSym, operationInserted, execution, decimalStatus, piStatus, decimalInserted);
 //logs false to the console after loading onto the page
 function insertNum(num){
@@ -20,7 +20,7 @@ function insertNum(num){
 }
 
 //replaces operators
-if(num === '*' || num === '/' || num === '+'|| num === '-'){
+if(num === '+'|| num === '-' || num === '*' || num === '/'){
   if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1] == '*' || expressionArray[expressionArray.length - 1] == '/'){
     expressionArray.pop();
     expressionArray.push(num);
@@ -153,7 +153,7 @@ function equal(){
     document.calculator.display.value = calculatorAnswer;
   }
 
-  if(document.calculator.display.value === "Infinity" || document.calculator.display.value === "NaN" || document.calculator.display.value === "∞") {
+  if(document.calculator.display.value === "NaN" || document.calculator.display.value === "∞" || document.calculator.display.value === "Infinity") {
     document.calculator.display.value = "ERROR";
   }
 }
